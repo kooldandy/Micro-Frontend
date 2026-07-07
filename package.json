@@ -1,0 +1,27 @@
+{
+  "name": "mfe-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:host": "turbo run dev --filter=host-app",
+    "build": "turbo run build",
+    "preview": "turbo run preview",
+    "remotes:preview": "turbo run build --filter=auth-app --filter=profile-app --filter=product-app && turbo run preview --filter=auth-app --filter=profile-app --filter=product-app",
+    "serve": "turbo run build && turbo run preview",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean && rimraf node_modules"
+  },
+  "devDependencies": {
+    "turbo": "^2.3.0",
+    "rimraf": "^6.0.1"
+  },
+  "packageManager": "yarn@1.22.22",
+  "engines": {
+    "node": ">=18"
+  }
+}

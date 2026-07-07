@@ -1,0 +1,16 @@
+version: 2
+updates:
+  # 3.1 Supply-chain control (docs/07-security-architecture.md): a single
+  # entry covers the whole yarn workspaces tree (root lockfile + every
+  # apps/* and packages/* package.json) — Dependabot resolves workspaces
+  # from the root automatically.
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    groups:
+      production-dependencies:
+        dependency-type: "production"
+      development-dependencies:
+        dependency-type: "development"
